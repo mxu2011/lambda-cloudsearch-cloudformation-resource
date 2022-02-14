@@ -4,7 +4,7 @@
 ARG VARIANT="16-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 RUN echo 'export PS1="% "' >> /home/node/.bashrc
-ENV PATH="/workspaces/blog-isolation/.devcontainer:${PATH}"
+ENV PATH="/workspaces/lambda-cloudsearch-cloudformation-resource/.devcontainer:${PATH}"
 RUN npm install -g serverless lerna aws-auth-helper snyk cross-var
 RUN mkdir -p /home/node/.aws
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
