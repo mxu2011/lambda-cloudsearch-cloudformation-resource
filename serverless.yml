@@ -24,7 +24,7 @@ plugins:
 
 functions:
   CreateCloudSearchDomain:
-    handler: handler.CloudsearchDomain
+    handler: handler.CloudsearchDomainMxu
 
 resources:
   Resources:
