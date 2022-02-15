@@ -1,4 +1,4 @@
-service: CloudsearchCloudformationResource
+service: test-CloudSearchDomain
 
 frameworkVersion: "2"
 
@@ -23,14 +23,18 @@ plugins:
   - serverless-jest-plugin
 
 functions:
-  CloudsearchDomain:
+  CreateCloudSearchDomain:
     handler: handler.CloudsearchDomain
 
 resources:
-  Outputs:
-    CloudsearchDomainArnRef:
-      Description: Exported Ref value for CloudsearchDomain
-      Value:
-        Fn::GetAtt: [CloudsearchDomainLambdaFunction, Arn]
-      Export:
-        Name: CloudsearchDomainResourceArn
+  Resources:
+    CloudSearchDomain:
+      Type: Custom::CloudSearchDomain
+      Properties:
+        ServiceToken:
+          Fn::GetAtt:
+            - CreateCloudSearchDomainLambdaFunction
+            - Arn
+        DomainName: test-cloudsearch-domain-2
+          
+
